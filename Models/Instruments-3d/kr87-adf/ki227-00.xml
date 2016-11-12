@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+<!--  KI 227-00 
+ADF Heading Indicator -manually rotated compass card
+Syd Adams 
+-->
+
+<PropertyList>
+
+    <path>ki227.ac</path>
+
+    <animation>
+        <type>material</type>
+        <object-name>KI227card</object-name>
+        <object-name>KI227.needle</object-name>
+        <object-name>KI227.knob</object-name>
+        <object-name>KI227.face</object-name>
+        <emission>
+            <red>0.028</red>
+            <green>0.014</green>
+            <blue>0.007</blue>
+            <factor-prop>systems/electrical/outputs/instrument-lights</factor-prop>
+        </emission>
+    </animation>
+
+    <animation>
+        <type>rotate</type>
+        <object-name>KI227card</object-name>
+        <property>/instrumentation/kr-87/inputs/rotation-deg</property>
+        <factor>-1</factor>
+        <axis>
+            <x>-1</x>
+            <y>0</y>
+            <z>0</z>
+        </axis>
+    </animation>
+ 
+    <animation>
+        <type>rotate</type>
+        <object-name>KI227.needle</object-name>
+        <property>/instrumentation/kr-87/outputs/needle-deg</property>
+        <axis>
+            <x>-1</x>
+            <y>0</y>
+            <z>0</z>
+        </axis>
+    </animation>
+
+    <animation>
+	    <type>pick</type>
+	    <object-name>KI227.crsdn</object-name>
+	    <visible>0</visible>
+	    <action>
+		    <button>0</button>
+		    <repeatable>true</repeatable>
+		    <binding>
+			    <command>property-adjust</command>
+			    <property>instrumentation/kr-87/inputs/rotation-deg</property>
+			    <step>-1</step>
+			    <min>0</min>
+			    <max>360</max>
+			    <wrap>1</wrap>
+		    </binding>
+	    </action>
+    </animation>
+    
+    <animation>
+	    <type>pick</type>
+	    <object-name>KI227.crsdn</object-name>
+	    <visible>0</visible>
+	    <action>
+		    <button>1</button>
+		    <repeatable>true</repeatable>
+		    <binding>
+			    <command>property-adjust</command>
+			    <property>instrumentation/kr-87/inputs/rotation-deg</property>
+			    <step>-10</step>
+			    <min>0</min>
+			    <max>360</max>
+			    <wrap>1</wrap>
+		    </binding>
+	    </action>
+    </animation>
+    
+    <animation>
+	    <type>pick</type>
+	    <object-name>KI227.crsup</object-name>
+	    <visible>0</visible>
+	    <action>
+		    <button>0</button>
+		    <repeatable>true</repeatable>
+		    <binding>
+			    <command>property-adjust</command>
+			    <property>instrumentation/kr-87/inputs/rotation-deg</property>
+			    <step>1</step>
+			    <min>0</min>
+			    <max>360</max>
+			    <wrap>1</wrap>
+		    </binding>
+	    </action>
+    </animation>
+    
+    <animation>
+	    <type>pick</type>
+	    <object-name>KI227.crsup</object-name>
+	    <visible>0</visible>
+	    <action>
+		    <button>1</button>
+		    <repeatable>true</repeatable>
+		    <binding>
+			    <command>property-adjust</command>
+			    <property>instrumentation/kr-87/inputs/rotation-deg</property>
+			    <step>10</step>
+			    <min>0</min>
+			    <max>360</max>
+			    <wrap>1</wrap>
+		    </binding>
+	    </action>
+    </animation>
+</PropertyList>
+
