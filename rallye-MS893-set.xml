@@ -15,21 +15,29 @@ and most of the configuration files are modified from other aircrafts of various
 
 	<flight-model>yasim</flight-model>
 	<aero>rallye-MS893</aero>
+        <aircraft-version>0.5</aircraft-version>
 	<fuel-fraction>0.8</fuel-fraction>
 
+       <rating>
+          <FDM type="int">3</FDM>
+          <systems type="int">1</systems>
+          <cockpit type="int">3</cockpit>
+          <model type="int">4</model>
+        </rating>
+        
 	<startup>
 		<splash-texture>Aircraft/rallye-MS893/splash.png</splash-texture>
 		<splash-title>Socata Rallye MS-893E</splash-title>
-				</startup>
+	  </startup>
 
 	<systems>
 	 <electrical>
-		 <path>Aircraft/rallye-MS893/generic-electrical.xml</path>
+		 <path>Aircraft/rallye-MS893/Systems/rallye-electrical.xml</path>
 	 </electrical>
 	</systems>
 	
 	<instrumentation>
-		<path>Aircraft/rallye-MS893/generic-instrumentation.xml</path>
+		<path>Aircraft/rallye-MS893/Systems/rallye-instrumentation.xml</path>
 	</instrumentation>
 
 	<sound>
@@ -43,6 +51,38 @@ and most of the configuration files are modified from other aircrafts of various
 	<model>
 	 <path archive="y">Aircraft/rallye-MS893/Models/rallye-MS893.xml</path>
 	</model>
+
+<menubar>
+      <default>
+          <menu n="10">
+              <label>Socata</label>
+              <enabled type="bool">true</enabled>
+              <item>
+                <name>livery</name>
+                <label>Select Livery</label>
+                <binding>
+                  <command>nasal</command>
+                  <script>
+                    aircraft.livery.dialog.open();
+                  </script>
+                </binding>
+              </item>   
+            <item>
+			<name>lights</name>
+			<label>Lights</label>
+				<binding>
+					<command>nasal</command>
+					<script>
+						var lights = gui.Dialog.new("sim/gui/dialogs/lights/dialog", "Aircraft/rallye-MS893/Systems/lights-dlg.xml");
+						lights.open();
+					</script>
+				</binding>
+		  </item>
+
+          </menu>
+      </default>
+  </menubar>
+
 
 <!--  
 			<view>
@@ -115,6 +155,7 @@ and most of the configuration files are modified from other aircrafts of various
 			</limits>
 		</config>
 				</view>
+
 
 
 
@@ -291,7 +332,12 @@ and most of the configuration files are modified from other aircrafts of various
  <nasal>
 	 <rallye-MS893>
 		 <file>Aircraft/rallye-MS893/Nasal/auto-slats.nas</file>
+                 <file>Aircraft/rallye-MS893/Nasal/livery.nas</file>
+                 <file>Aircraft/rallye-MS893/Nasal/registration.nas</file>
+                 <file>Aircraft/rallye-MS893/Nasal/tyresmoke.nas</file>  
+                 <file>Aircraft/rallye-MS893/Nasal/lights.nas</file>    
 	 </rallye-MS893>
+
  </nasal>
 
 
